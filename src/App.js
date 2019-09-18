@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { Route, Switch, Redirect, withRouter } from "react-router-dom";
 import styled from "styled-components";
 import { createGlobalStyle } from "styled-components";
+import { NavBar } from "./components/nav";
 
 import LandingPage from "./static/LandingPage";
 import LoginPage from "./containers/LoginPage";
@@ -37,6 +38,7 @@ export class App extends React.Component {
       // debugger;
       return (
         <>
+          <NavBar />
           <GlobalStyle />
           <Switch>
             <Route exact path="/watchlist" component={WatchListPage} />

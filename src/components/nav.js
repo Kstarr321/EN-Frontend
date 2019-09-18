@@ -7,7 +7,7 @@ const NavWrapper = styled.div`
   justify-content: space-between;
   background-color: rgb(88, 75, 79);
   width: 100%;
-  height: 5%;
+  height: 50px;
   border-bottom: 3px solid rgb(118, 175, 160);
   font-size: 25px;
 
