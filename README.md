@@ -66,3 +66,25 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+### User Stories
+
+A user will be able to save stocks to a watchlist to track
+A user will be able to save charts related to specific stocks/equities with the technical indicators they selected (maybe add notes feature)
+A user will be able to make predictions on the price future price movements of stocks and be awarded points depending on how close they were and how long the time frame was.
+
+A user can have many watchlists and delete the stocks inside them or the list itself
+A user will be able to use a fully-deatured stock charting platform where they can see price updates in real time and add technical indicators as they see fit.
+
+A user can have many watchlists and watchlists can have many stocks through W-record (every user starts with a non-deleteable empty default watchlists)
+Stocks can have many watchlists through w-record
+
+A user can have many predictions. A prediction belongs to a user
+
+A user can have many charts. A Chart belongs to a User
+
+# USER - CHART - PREDICTION - STOCK - WATCHLIST - W_RECORD(join table)
+
+# Stretch Goals:
+
+I want a text/email to be sent to a user on the date of their prediction expiration date with their results
