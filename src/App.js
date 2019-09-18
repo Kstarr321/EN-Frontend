@@ -19,7 +19,7 @@ export class App extends React.Component {
 
   render() {
     if (this.props.state.currentUser !== null) {
-      debugger;
+      // debugger;
       return (
         <>
           <Switch>
