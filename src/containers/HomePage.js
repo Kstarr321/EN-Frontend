@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import { NavBar } from "../components/nav";
+// import { NavBar } from "../components/nav";
 
 const HomePageWrapper = styled.div`
   display: flex;
@@ -49,8 +49,11 @@ const HomePageWrapper = styled.div`
       margin-right: 120px;
       margin-top: 10px;
       margin-bottom: 10px;
-      border-style: solid;
-      border-color: rgb(99, 156, 199);
+      border-left: 3px solid rgb(219, 158, 57);
+      box-shadow: 0 4px 8px 0 rgba(219, 158, 57, 0.5);
+      /* border-style: solid; */
+      /* background-color: rgba(99, 156, 199); */
+      /* border-color: rgb(99, 156, 199); */
     }
 
     .feed {
@@ -62,7 +65,7 @@ const HomePageWrapper = styled.div`
       margin: 10px;
       /* border-style: solid; */
       /* border-color: rgb(99, 156, 199); */
-      box-shadow: 0 4px 8px 0 rgba(219, 158, 57, 0.5);
+      box-shadow: 0 4px 8px 0 rgba(99, 156, 199, 0.5);
       overflow: scroll;
     }
   }
