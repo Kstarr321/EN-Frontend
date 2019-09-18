@@ -2,6 +2,8 @@ import React from "react";
 import { updateUser } from "./redux/actions";
 import { connect } from "react-redux";
 import { Route, Switch, Redirect, withRouter } from "react-router-dom";
+import styled from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
 import LandingPage from "./static/LandingPage";
 import LoginPage from "./containers/LoginPage";
@@ -11,6 +13,19 @@ import ChartPage from "./containers/ChartPage";
 import PredictorPage from "./containers/PredictorPage";
 import ProfilePage from "./containers/ProfilePage";
 import WatchListPage from "./containers/WatchListPage";
+
+const GlobalStyle = createGlobalStyle`
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+body {
+  background-color: rgb(52, 50, 51);
+  font-size: 15px;
+  
+  }`;
 
 export class App extends React.Component {
   componentDidMount() {
@@ -22,6 +37,7 @@ export class App extends React.Component {
       // debugger;
       return (
         <>
+          <GlobalStyle />
           <Switch>
             <Route exact path="/watchlist" component={WatchListPage} />
           </Switch>
