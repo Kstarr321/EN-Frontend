@@ -1,5 +1,8 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
+// import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import { getSectors } from "../redux/actions";
 // import { NavBar } from "../components/nav";
 
 const HomePageWrapper = styled.div`
@@ -43,6 +46,7 @@ const HomePageWrapper = styled.div`
     .rightSide {
       display: flex;
       flex-direction: column;
+      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       width: 25%;
@@ -71,25 +75,47 @@ const HomePageWrapper = styled.div`
   }
 `;
 
-export default class HomePage extends Component {
+export class HomePage extends React.Component {
+  componentDidMount() {
+    this.props.getSectors();
+    // debugger;
+  }
+
+  showMe = () => {
+    console.log(this.props);
+  };
+
   render() {
+    // debugger;
     return (
       <HomePageWrapper>
-        {/* <NavBar /> */}
-        <div className="main">
+        <div className="main" onClick={this.showMe}>
           <div className="leftSide">
             <div> Mini Prof Card</div>
             <div>Leaderboard Card</div>
             <div>Trending news #</div>
           </div>
           <div className="feed"> two </div>
-          <div className="rightSide"> three </div>
+          <div className="rightSide">
+            {Object.entries(this.props.sectors).forEach(sector =>
+              console.log(sector)
+            )}
+          </div>
         </div>
         {/* <div className="footer">footer</div> */}
       </HomePageWrapper>
     );
   }
 }
+
+const mapStateToProps = state => {
+  return { sectors: state.sectors };
+};
+
+export default connect(
+  mapStateToProps,
+  { getSectors }
+)(HomePage);
 
 // <p>
 //   **I will be responsible for rendering: newsFeed => statsBox =>

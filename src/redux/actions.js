@@ -3,10 +3,12 @@
 //   return { type: "GET_STOCK", ticker };
 // };
 
-export const getSectors = ticker => {
+export const getSectors = () => {
   return dispatch => {
     // dispatch() this is where i can addd another dispatch if i want to do something else AND do the fetch too
-    fetch("http://localhost:3000/quote/sectors")
+    fetch("http://localhost:3000/quote/sectors", {
+      headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
+    })
       .then(response => response.json())
       .then(data => dispatch({ type: "GET_SECTORS", data }));
   };
