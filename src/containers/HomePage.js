@@ -3,7 +3,9 @@ import styled from "styled-components";
 // import SectorDisplay from "../components/sectorsDisplay";
 import { connect } from "react-redux";
 import { getSectors } from "../redux/actions";
+import { getNews } from "../redux/actions";
 import SectorDisplay from "../components/sectorsDisplay";
+import NewsCard from "../components/newsCard";
 // import { NavBar } from "../components/nav";
 
 const HomePageWrapper = styled.div`
@@ -56,7 +58,7 @@ const HomePageWrapper = styled.div`
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
         /* border-style: solid;
         border-color: white; */
-        border-left: 6px solid rgb(118, 175, 160);
+        border-left: 5px solid rgb(118, 175, 160);
         height: 48%;
         width: 100%;
       }
@@ -105,15 +107,13 @@ const HomePageWrapper = styled.div`
 export class HomePage extends React.Component {
   componentDidMount() {
     this.props.getSectors();
+    this.props.getNews();
     // debugger;
   }
 
-  showMe = () => {
-    console.log(this.props);
-  };
+  renderNewsCards = () => {};
 
   render() {
-    // debugger;
     return (
       <HomePageWrapper>
         <div className="main" onClick={this.showMe}>
@@ -126,7 +126,12 @@ export class HomePage extends React.Component {
             </div>
             <div className="news">Trending news #</div>
           </div>
-          <div className="feed"> two </div>
+          <div className="feed">
+            {console.log(typeof this.props.news.data)}
+            {/* {this.props.news["data"].map(section => {
+              return <NewsCard data={section} />;
+            })} */}
+          </div>
           <div className="rightSide"></div>
         </div>
         {/* <div className="footer">footer</div> */}
@@ -136,12 +141,12 @@ export class HomePage extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return { sectors: state.sectors };
+  return { sectors: state.sectors, news: state.news };
 };
 
 export default connect(
   mapStateToProps,
-  { getSectors }
+  { getSectors, getNews }
 )(HomePage);
 
 // <p>

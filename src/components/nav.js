@@ -38,6 +38,7 @@ export class NavBar extends React.Component {
       <NavWrapper>
         <div className="logo">Log/Other Section</div>
         <div className="links">
+          <Link to="/home">Dashboard</Link>
           <Link to="/predictor">Prediction Tool</Link>
           <Link to="/chart">Chartr </Link>
           <Link to="/profile">Profile</Link>

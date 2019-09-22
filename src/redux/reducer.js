@@ -1,6 +1,7 @@
 export default function stateManager(
   state = {
     selectedStock: {},
+    indicator: {},
     currentUser: null, // This is filled when my user logs in. I need to make sure that ALL related data comes along with user.
     allUsers: [], // This is a fetch i'm going to make to fill up the leaderboard section
     news: [], // This is a fetch that is going to be made preferrable from a news API. I'd like to group it in 10's if I can. Otherwise the news feed component might get crazy full
@@ -12,12 +13,28 @@ export default function stateManager(
 ) {
   switch (action.type) {
     case "GET_STOCK":
-      return { test: "case" };
+      // debugger;
+      return { ...state, selectedStock: action.chartData };
 
     case "GET_SECTORS":
       return {
         ...state,
         sectors: action.data["Rank F: Year-to-Date (YTD) Performance"]
+      };
+    case "SET_INDICATOR":
+      let newStock = (state.selectedStock.datasets[1] = {
+        label: "Indicator",
+        data: action.points,
+        borderColor: "rgb(99, 156, 199)"
+      });
+
+    case "SET_NEWS":
+      return { ...state, news: action.data };
+      // console.log(newStock);
+
+      return {
+        ...state,
+        selectedStock: { ...state.selectedStock, newStock }
       };
 
     case "LOGIN":

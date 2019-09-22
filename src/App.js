@@ -40,6 +40,7 @@ export class App extends React.Component {
         <>
           <NavBar />
           <GlobalStyle />
+
           <Switch>
             <Route exact path="/watchlist" component={WatchListPage} />
           </Switch>
