@@ -18,6 +18,7 @@ const CardWrapper = styled.div`
 
   .banner {
     display: flex;
+    font-size: 23px;
     flex-direction: column;
     align-content: center;
     align-items: center;
@@ -34,6 +35,7 @@ const CardWrapper = styled.div`
     justify-content: space-between;
     width: 100%;
     height: 100%;
+    color: white;
 
     .image {
       /* align-self: flex-start; */
@@ -42,6 +44,7 @@ const CardWrapper = styled.div`
       border-color: white;
       height: 100%;
       width: 100%;
+      font-size: 20px;
 
       img {
         width: 100%;

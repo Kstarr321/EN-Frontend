@@ -20,9 +20,6 @@ const HomePageWrapper = styled.div`
   /* border-style: solid;
   border-color: white; */
   .main {
-    /* position: fixed; */
-    /* border-style: solid;
-    border-color: rgb(99, 156, 199); */
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -60,8 +57,6 @@ const HomePageWrapper = styled.div`
 
       .sectors {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
-        /* border-style: solid;
-        border-color: white; */
         border-left: 5px solid rgb(118, 175, 160);
         height: 48%;
         width: 100%;
