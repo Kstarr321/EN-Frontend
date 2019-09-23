@@ -45,7 +45,7 @@ const CardWrapper = styled.div`
 
       img {
         width: 100%;
-        height: 60%;
+        height: 50%;
       }
     }
 
@@ -66,6 +66,7 @@ export default class NewsCard extends Component {
         <div className="body">
           <div className="image">
             <img src={this.props.details.image_url}></img>
+            <p>{this.props.details.text}</p>
           </div>
           <div className="story">oasdkjfoknf</div>
         </div>
