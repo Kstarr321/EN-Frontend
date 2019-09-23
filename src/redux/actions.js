@@ -35,7 +35,13 @@ const organizeIndicatorData = (data, dispatch) => {
 };
 
 const organizeNewsData = (data, dispatch) => {
-  dispatch({ type: "SET_NEWS", data });
+  const orgData = [];
+
+  data["data"].forEach(art => {
+    orgData.push(art);
+  });
+
+  dispatch({ type: "SET_NEWS", orgData });
 };
 
 export const getStock = symbol => {

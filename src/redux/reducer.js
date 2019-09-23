@@ -29,13 +29,14 @@ export default function stateManager(
       });
 
     case "SET_NEWS":
-      return { ...state, news: action.data };
-      // console.log(newStock);
+      // debugger;
+      return { ...state, news: action.orgData };
+    // console.log(newStock);
 
-      return {
-        ...state,
-        selectedStock: { ...state.selectedStock, newStock }
-      };
+    // return {
+    //   ...state,
+    //   selectedStock: { ...state.selectedStock, newStock }
+    // };
 
     case "LOGIN":
       localStorage.setItem("token", action.data.jwt);

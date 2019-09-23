@@ -15,10 +15,12 @@ const HomePageWrapper = styled.div`
   margin-top: 2%;
   align-items: center;
   justify-content: space-between;
+  /* position: fixed; */
 
   /* border-style: solid;
   border-color: white; */
   .main {
+    /* position: fixed; */
     /* border-style: solid;
     border-color: rgb(99, 156, 199); */
     display: flex;
@@ -32,6 +34,7 @@ const HomePageWrapper = styled.div`
       justify-content: space-between;
       overflow: scroll;
       flex-direction: column;
+      /* position: fixed; */
     }
 
     .leftSide {
@@ -43,6 +46,7 @@ const HomePageWrapper = styled.div`
       margin-left: 120px;
       margin-top: 10px;
       margin-bottom: 10px;
+      /* position: fixed; */
       /* border-style: solid;
       border-color: rgb(99, 156, 199); */
 
@@ -96,6 +100,8 @@ const HomePageWrapper = styled.div`
       justify-content: space-between;
       width: 35%;
       margin: 10px;
+      /* flex-wrap: wrap; */
+      height: 27000px;
       /* border-style: solid; */
       /* border-color: rgb(99, 156, 199); */
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
@@ -111,7 +117,9 @@ export class HomePage extends React.Component {
     // debugger;
   }
 
-  renderNewsCards = () => {};
+  renderNewsCards = () => {
+    // debugger;
+  };
 
   render() {
     return (
@@ -121,20 +129,23 @@ export class HomePage extends React.Component {
             <div className="prof"> Mini Prof Card</div>
             <div className="sectors">
               {Object.entries(this.props.sectors).map(sector => {
-                return <SectorDisplay sector={sector} />;
+                return <SectorDisplay sector={sector} key={sector} />;
               })}
             </div>
             <div className="news">Trending news #</div>
           </div>
           <div className="feed">
-            {console.log(typeof this.props.news.data)}
-            {/* {this.props.news["data"].map(section => {
-              return <NewsCard data={section} />;
-            })} */}
+            {/* <NewsCard />
+            <NewsCard />
+            <NewsCard /> */}
+            {/* <NewsCard /> */}
+
+            {this.props.news.map(art => {
+              return <NewsCard details={art} key={art.title} />;
+            })}
           </div>
           <div className="rightSide"></div>
         </div>
-        {/* <div className="footer">footer</div> */}
       </HomePageWrapper>
     );
   }
