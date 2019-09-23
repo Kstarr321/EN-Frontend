@@ -37,10 +37,16 @@ const CardWrapper = styled.div`
 
     .image {
       /* align-self: flex-start; */
+
       border-style: solid;
       border-color: white;
       height: 100%;
       width: 100%;
+
+      img {
+        width: 100%;
+        height: 60%;
+      }
     }
 
     .story {
@@ -58,7 +64,9 @@ export default class NewsCard extends Component {
       <CardWrapper>
         <div className="banner">{this.props.details.title}</div>
         <div className="body">
-          <div className="image">ondoskojfij</div>
+          <div className="image">
+            <img src={this.props.details.image_url}></img>
+          </div>
           <div className="story">oasdkjfoknf</div>
         </div>
       </CardWrapper>
