@@ -103,6 +103,8 @@ export class Quotr extends Component {
             </button>
           </form>
         </div>
+        <button className="add">Make Prediction</button>
+        <button className="add">Save Chart</button>
       </QuotrWrapper>
     );
   }

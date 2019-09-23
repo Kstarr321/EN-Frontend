@@ -99,7 +99,7 @@ const HomePageWrapper = styled.div`
       height: 27000px;
       /* border-style: solid; */
       /* border-color: rgb(99, 156, 199); */
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+      /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5); */
       overflow: scroll;
     }
   }

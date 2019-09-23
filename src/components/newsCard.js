@@ -4,13 +4,15 @@ import styled from "styled-components";
 import { getNews } from "../redux/actions";
 
 const CardWrapper = styled.div`
-  border-style: solid;
-  border-color: white;
+  /* border-style: solid;
+  border-color: white; */
+
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
   margin: 2.5%;
   width: 90%;
   height: 100px;
   flex: 1;
-
+  border-left: 4px solid white;
   display: flex;
   flex-direction: column;
   align-content: center;
@@ -36,12 +38,13 @@ const CardWrapper = styled.div`
     width: 100%;
     height: 100%;
     color: white;
+    /* border-left: 5px solid white; */
 
     .image {
       /* align-self: flex-start; */
-
-      border-style: solid;
-      border-color: white;
+      /* border-bottom: 5px solid white; */
+      /* border-style: solid;
+      border-color: white; */
       height: 100%;
       width: 100%;
       font-size: 20px;
@@ -53,8 +56,8 @@ const CardWrapper = styled.div`
     }
 
     .story {
-      border-style: solid;
-      border-color: white;
+      /* border-style: solid;
+      border-color: white; */
       height: 100%;
       width: 100%;
     }

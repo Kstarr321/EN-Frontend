@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 const NavWrapper = styled.div`
   display: flex;
+  /* position: initial; */
   justify-content: space-between;
   background-color: rgb(88, 75, 79);
   width: 100%;

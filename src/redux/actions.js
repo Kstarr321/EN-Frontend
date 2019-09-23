@@ -125,7 +125,6 @@ export const getIndicator = (indicator, symbol) => {
     })
       .then(r => r.json())
       .then(data => {
-        debugger;
         organizeIndicatorData(data, dispatch);
       });
   };
