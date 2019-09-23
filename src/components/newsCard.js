@@ -29,10 +29,26 @@ const CardWrapper = styled.div`
     align-self: center; */
   }
 
-  .image {
-    align-self: flex-start;
-    border-style: solid;
-    border-color: white;
+  .body {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+
+    .image {
+      /* align-self: flex-start; */
+      border-style: solid;
+      border-color: white;
+      height: 100%;
+      width: 100%;
+    }
+
+    .story {
+      border-style: solid;
+      border-color: white;
+      height: 100%;
+      width: 100%;
+    }
   }
 `;
 
@@ -43,6 +59,7 @@ export default class NewsCard extends Component {
         <div className="banner">{this.props.details.title}</div>
         <div className="body">
           <div className="image">ondoskojfij</div>
+          <div className="story">oasdkjfoknf</div>
         </div>
       </CardWrapper>
     );
