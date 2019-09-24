@@ -6,10 +6,13 @@ const NavWrapper = styled.div`
   display: flex;
   /* position: initial; */
   justify-content: space-between;
-  background-color: rgb(88, 75, 79);
+  /* background-color: rgb(88, 75, 79); */
+  background-color: rgb(40, 40, 40);
   width: 100%;
   height: 50px;
-  border-bottom: 3px solid rgb(118, 175, 160);
+  /* border-bottom: 3px solid white; */
+  /* border-bottom: 3px solid rgb(118, 175, 160); */
+  border-bottom: 3px solid rgb(0, 115, 175);
   font-size: 25px;
 
   /* div {

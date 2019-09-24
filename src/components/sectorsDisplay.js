@@ -9,7 +9,8 @@ const SectorWrapper = styled.div`
   font-size: 20px;
 
   .perf {
-    color: rgb(118, 175, 160);
+    /* color: rgb(118, 175, 160); */
+    color: rgb(1, 150, 179);
   }
 `;
 
