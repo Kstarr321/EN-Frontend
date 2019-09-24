@@ -129,7 +129,7 @@ const HomePageWrapper = styled.div`
 
 export class HomePage extends React.Component {
   componentDidMount() {
-    this.props.getSectors();
+    // this.props.getSectors();
     // this.props.getNews();
     this.props.getFeaturedStocks();
     // debugger;
@@ -142,9 +142,9 @@ export class HomePage extends React.Component {
           <div className="leftSide">
             <div className="prof"> Mini Prof Card</div>
             <div className="sectors">
-              {Object.entries(this.props.sectors).map(sector => {
+              {/* {Object.entries(this.props.sectors).map(sector => {
                 return <SectorDisplay sector={sector} key={sector} />;
-              })}
+              })} */}
             </div>
             <div className="news">Trending news #</div>
           </div>
@@ -155,7 +155,8 @@ export class HomePage extends React.Component {
           </div>
           <div className="rightSide">
             {this.props.stocks.map(stock => {
-              return <StockCard details={Object.values(stock)[0]} />;
+              let stockObj = stock["Global Quote"];
+              return <StockCard details={stockObj} />;
             })}
           </div>
         </div>

@@ -31,7 +31,6 @@ export default function stateManager(
     case "SET_NEWS":
       return { ...state, news: action.orgData };
     case "SET_FEATURED_STOCKS":
-      debugger;
       return { ...state, presetStocks: action.stocks };
     case "LOGIN":
       localStorage.setItem("token", action.data.jwt);
