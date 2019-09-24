@@ -6,6 +6,7 @@ import { getSectors } from "../redux/actions";
 import { getNews } from "../redux/actions";
 import { getFeaturedStocks } from "../redux/actions";
 import SectorDisplay from "../components/sectorsDisplay";
+import StockCard from "../components/StockCard";
 import NewsCard from "../components/newsCard";
 
 const HomePageWrapper = styled.div`
@@ -134,10 +135,6 @@ export class HomePage extends React.Component {
     // debugger;
   }
 
-  renderNewsCards = () => {
-    // debugger;
-  };
-
   render() {
     return (
       <HomePageWrapper>
@@ -156,7 +153,11 @@ export class HomePage extends React.Component {
               return <NewsCard details={art} key={art.title} />;
             })} */}
           </div>
-          <div className="rightSide"></div>
+          <div className="rightSide">
+            {this.props.stocks.map(stock => {
+              return <StockCard details={Object.values(stock)[0]} />;
+            })}
+          </div>
         </div>
       </HomePageWrapper>
     );
@@ -164,7 +165,11 @@ export class HomePage extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return { sectors: state.sectors, news: state.news };
+  return {
+    sectors: state.sectors,
+    news: state.news,
+    stocks: state.presetStocks
+  };
 };
 
 export default connect(
