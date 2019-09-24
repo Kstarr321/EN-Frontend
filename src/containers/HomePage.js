@@ -31,10 +31,14 @@ const HomePageWrapper = styled.div`
       justify-content: space-between;
       overflow: scroll;
       flex-direction: column;
+      border-radius: 25px;
+
       /* position: fixed; */
     }
 
     .leftSide {
+      border-radius: 25px;
+
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -49,29 +53,41 @@ const HomePageWrapper = styled.div`
 
       .prof {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+        border-radius: 25px;
+
         /* border-style: solid;
         border-color: white; */
         height: 25%;
         width: 100%;
+        /* background-color: rgb(40, 40, 40); */
+        background-color: rgb(0, 115, 175);
       }
 
       .sectors {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
-        border-left: 5px solid rgb(118, 175, 160);
+        border-left: 4px solid rgb(118, 175, 160);
         height: 48%;
         width: 100%;
+        background-color: rgb(40, 40, 40);
       }
 
       .news {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+        border-radius: 25px;
+
         /* border-style: solid;
         border-color: white; */
         height: 20%;
         width: 100%;
+        /* background-color: rgb(40, 40, 40); */
+        background-color: white;
       }
     }
 
     .rightSide {
+      border-radius: 25px;
+
+      background-color: rgb(40, 40, 40);
       display: flex;
       flex-direction: column;
       flex-wrap: wrap;
@@ -81,8 +97,8 @@ const HomePageWrapper = styled.div`
       margin-right: 120px;
       margin-top: 10px;
       margin-bottom: 10px;
-      border-left: 3px solid rgb(219, 158, 57);
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+      /* border-left: 3px solid rgb(219, 158, 57); */
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 1);
       /* border-style: solid; */
       /* background-color: rgba(99, 156, 199); */
       /* border-color: rgb(99, 156, 199); */
@@ -108,7 +124,7 @@ const HomePageWrapper = styled.div`
 export class HomePage extends React.Component {
   componentDidMount() {
     this.props.getSectors();
-    // this.props.getNews();
+    this.props.getNews();
     // debugger;
   }
 
@@ -135,9 +151,9 @@ export class HomePage extends React.Component {
             <NewsCard /> */}
             {/* <NewsCard /> */}
 
-            {/* {this.props.news.map(art => {
+            {this.props.news.map(art => {
               return <NewsCard details={art} key={art.title} />;
-            })} */}
+            })}
           </div>
           <div className="rightSide"></div>
         </div>

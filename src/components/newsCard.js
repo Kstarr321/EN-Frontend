@@ -6,38 +6,53 @@ import { getNews } from "../redux/actions";
 const CardWrapper = styled.div`
   /* border-style: solid;
   border-color: white; */
-
+  background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
   margin: 2.5%;
   width: 90%;
   height: 100px;
   flex: 1;
-  border-left: 4px solid white;
+  /* border-left: 4px solid white; */
   display: flex;
   flex-direction: column;
   align-content: center;
   align-items: center;
+  border-radius: 25px;
 
   .banner {
+    border-radius: 25px;
+    padding: 6%;
     display: flex;
-    font-size: 23px;
+    font-size: 30px;
+    color: white;
+    /* margin: 1%; */
     flex-direction: column;
+    justify-content: center;
+    justify-items: center;
     align-content: center;
     align-items: center;
-    border-bottom: 5px solid white;
+    /* border-bottom: 5px solid white; */
     width: 100%;
     height: 12%;
-    background-color: rgb(99, 156, 199);
+    /* background-color: white; */
+    background-color: rgb(0, 115, 175);
+
+    /* background-color: rgb(219, 158, 57); */
     /* align-items: center;
     align-self: center; */
   }
 
   .body {
+    border-radius: 25px;
+    margin-top: 0%;
+    background-color: white;
     display: flex;
     justify-content: space-between;
     width: 100%;
     height: 100%;
-    color: white;
+    color: black;
+    overflow: scroll;
+    /* margin-bottom: 2%; */
     /* border-left: 5px solid white; */
 
     .image {
@@ -48,16 +63,23 @@ const CardWrapper = styled.div`
       height: 100%;
       width: 100%;
       font-size: 20px;
+      /* margin-top: 0%; */
+      p {
+        padding: 2%;
+      }
 
       img {
         width: 100%;
-        height: 50%;
+        height: 70%;
+        /* padding: 10%; */
       }
     }
 
     .story {
       /* border-style: solid;
       border-color: white; */
+      border-radius: 25px;
+
       height: 100%;
       width: 100%;
     }
@@ -74,7 +96,7 @@ export default class NewsCard extends Component {
             <img src={this.props.details.image_url}></img>
             <p>{this.props.details.text}</p>
           </div>
-          <div className="story">oasdkjfoknf</div>
+          {/* <div className="story">oasdkjfoknf</div> */}
         </div>
       </CardWrapper>
     );
