@@ -156,3 +156,15 @@ export const persistPrediction = (stock, info) => {
     });
   };
 };
+
+export const getFeaturedStocks = () => {
+  return dispatch => {
+    fetch("http://localhost:3000/quote/featured", {
+      headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
+    })
+      .then(r => r.json())
+      .then(stocks => {
+        dispatch({ type: "SET_FEATURED_STOCKS", stocks });
+      });
+  };
+};

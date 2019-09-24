@@ -13,9 +13,7 @@ export default function stateManager(
 ) {
   switch (action.type) {
     case "GET_STOCK":
-      // debugger;
       return { ...state, selectedStock: action.chartData };
-
     case "GET_SECTORS":
       return {
         ...state,
@@ -29,19 +27,17 @@ export default function stateManager(
         borderColor: "rgb(99, 156, 199)"
       };
       stock.datasets[1] = newAtt;
-      // debugger;
       return { ...state, selectedStock: stock };
-
     case "SET_NEWS":
       return { ...state, news: action.orgData };
-
+    case "SET_FEATURED_STOCKS":
+      debugger;
+      return { ...state, presetStocks: action.stocks };
     case "LOGIN":
       localStorage.setItem("token", action.data.jwt);
       return { ...state, currentUser: action.data.user };
-
     case "UPDATE_USER":
       return { ...state, currentUser: action.data.user };
-
     default:
       return state;
   }

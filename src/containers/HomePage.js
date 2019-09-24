@@ -4,9 +4,9 @@ import styled from "styled-components";
 import { connect } from "react-redux";
 import { getSectors } from "../redux/actions";
 import { getNews } from "../redux/actions";
+import { getFeaturedStocks } from "../redux/actions";
 import SectorDisplay from "../components/sectorsDisplay";
 import NewsCard from "../components/newsCard";
-// import { NavBar } from "../components/nav";
 
 const HomePageWrapper = styled.div`
   display: flex;
@@ -130,6 +130,7 @@ export class HomePage extends React.Component {
   componentDidMount() {
     this.props.getSectors();
     // this.props.getNews();
+    this.props.getFeaturedStocks();
     // debugger;
   }
 
@@ -151,11 +152,6 @@ export class HomePage extends React.Component {
             <div className="news">Trending news #</div>
           </div>
           <div className="feed">
-            {/* <NewsCard />
-            <NewsCard />
-            <NewsCard /> */}
-            {/* <NewsCard /> */}
-
             {/* {this.props.news.map(art => {
               return <NewsCard details={art} key={art.title} />;
             })} */}
@@ -173,10 +169,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getSectors, getNews }
+  { getSectors, getNews, getFeaturedStocks }
 )(HomePage);
-
-// <p>
-//   **I will be responsible for rendering: newsFeed => statsBox =>
-//   predictRibbon => navBar => leaderboard => miniChars => miniWatchList**
-// </p>
