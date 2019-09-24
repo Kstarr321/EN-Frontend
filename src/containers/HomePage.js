@@ -108,7 +108,7 @@ const HomePageWrapper = styled.div`
 export class HomePage extends React.Component {
   componentDidMount() {
     this.props.getSectors();
-    this.props.getNews();
+    // this.props.getNews();
     // debugger;
   }
 
@@ -135,9 +135,9 @@ export class HomePage extends React.Component {
             <NewsCard /> */}
             {/* <NewsCard /> */}
 
-            {this.props.news.map(art => {
+            {/* {this.props.news.map(art => {
               return <NewsCard details={art} key={art.title} />;
-            })}
+            })} */}
           </div>
           <div className="rightSide"></div>
         </div>

@@ -22,11 +22,15 @@ export default function stateManager(
         sectors: action.data["Rank F: Year-to-Date (YTD) Performance"]
       };
     case "SET_INDICATOR":
-      let newStock = (state.selectedStock.datasets[1] = {
+      let stock = { ...state.selectedStock };
+      let newAtt = {
         label: "Indicator",
         data: action.points,
         borderColor: "rgb(99, 156, 199)"
-      });
+      };
+      stock.datasets[1] = newAtt;
+      // debugger;
+      return { ...state, selectedStock: stock };
 
     case "SET_NEWS":
       return { ...state, news: action.orgData };

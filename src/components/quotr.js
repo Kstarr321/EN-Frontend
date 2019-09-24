@@ -2,8 +2,10 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { getStock } from "../redux/actions";
 import { getIndicator } from "../redux/actions";
+import { persistPrediction } from "../redux/actions";
 import { connect } from "react-redux";
 import Modal from "./Modal";
+import PredictForm from "../styled_components/PredictForm";
 
 const QuotrWrapper = styled.div`
   /* border-style: solid;
@@ -60,16 +62,24 @@ export class Quotr extends Component {
     super();
     this.state = {
       symbol: "",
-      indicator: "",
-      showPredictor: false
+      indicator: ""
     };
   }
 
-  togglePredictor = () => {
-    this.setState({
-      showPredictor: true
-    });
-  };
+  // togglePredictor = () => {
+  //   this.setState({
+  //     showPredictor: true
+  //   });
+  // };
+
+  // closePredictor = (e, stock, info) => {
+  //   e.preventDefault();
+
+  //   this.props.persistPrediction(stock, info);
+  //   this.setState({
+  //     showPredictor: false
+  //   });
+  // };
 
   handleChange = e => {
     this.setState({
@@ -95,48 +105,54 @@ export class Quotr extends Component {
   };
 
   render() {
-    if (this.state.showPredictor === false) {
-      return (
-        <QuotrWrapper>
-          <div className="main">
-            <form>
-              <input
-                className="stock"
-                onChange={e => this.handleChange(e)}
-                type="text"
-                placeholder="Stock Symbol...."
-                value={this.state.symbol}
-              ></input>
-              <button className="add" onClick={e => this.handleSubmit(e)}>
-                Add Stock
-              </button>
-            </form>
-          </div>
-          <div>
-            <form>
-              <input
-                type="text"
-                className="stock"
-                placeholder="Technical Indicator"
-                onChange={this.handleIndicator}
-              ></input>
-              <button
-                className="add"
-                onClick={e => this.handleIndicatorSubmit(e)}
-              >
-                Add Indicator
-              </button>
-            </form>
-          </div>
-          <button className="other" onClick={this.togglePredictor}>
-            Make Prediction
-          </button>
-          <button className="other">Save Chart</button>
-        </QuotrWrapper>
-      );
-    } else {
-      return <Modal />;
-    }
+    // if (this.state.showPredictor === false)
+    return (
+      <QuotrWrapper>
+        <div className="main">
+          <form>
+            <input
+              className="stock"
+              onChange={e => this.handleChange(e)}
+              type="text"
+              placeholder="Stock Symbol...."
+              value={this.state.symbol}
+            ></input>
+            <button className="add" onClick={e => this.handleSubmit(e)}>
+              Add Stock
+            </button>
+          </form>
+        </div>
+        <div>
+          <form>
+            <input
+              type="text"
+              className="stock"
+              placeholder="Technical Indicator"
+              onChange={this.handleIndicator}
+            ></input>
+            <button
+              className="add"
+              onClick={e => this.handleIndicatorSubmit(e)}
+            >
+              Add Indicator
+            </button>
+          </form>
+        </div>
+        <button className="other" onClick={this.props.toggle}>
+          Make Prediction
+        </button>
+        <button className="other">Save Chart</button>
+      </QuotrWrapper>
+    );
+
+    // else {
+    //   return (
+    //     <FormWrapper>
+    //       <PredictForm className="form" close={this.closePredictor} />;
+    //     </FormWrapper>
+    //   );
+
+    // }
   }
 }
 
@@ -146,5 +162,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getStock, getIndicator }
+  { getStock, getIndicator, persistPrediction }
 )(Quotr);

@@ -31,6 +31,15 @@ const ModalWrapper = styled.div`
       display: flex;
       flex-direction: column;
       justify-content: space-around;
+      height: 100%;
+
+      input {
+        height: 20%;
+        width: 60%;
+
+        font-size: 28px;
+        /* margin: 2%; */
+      }
     }
   }
 
@@ -55,6 +64,14 @@ export class Modal extends React.Component {
     };
   }
 
+  handleChange = e => {
+    let key = e.target.name;
+    this.setState({
+      [key]: e.target.value
+    });
+    // console.log(`I have changed ${key}`);
+  };
+
   render() {
     return (
       <ModalWrapper>
@@ -62,13 +79,33 @@ export class Modal extends React.Component {
           <div className="analytics"></div>
           <div className="form">
             <form>
-              <input type="text" placeholder="Name your Prediction"></input>
+              <input
+                type="text"
+                placeholder="Name your Prediction"
+                name="name"
+                onChange={e => this.handleChange(e)}
+              ></input>
               <br></br>
-              <input type="date"></input>
+              <input
+                type="date"
+                name="date"
+                onChange={e => this.handleChange(e)}
+              ></input>
               <br></br>
-              <input type="number"></input>
+              <input
+                type="number"
+                name="price"
+                onChange={e => this.handleChange(e)}
+              ></input>
               <br></br>
-              <button className="toggle-button">Submit Prediction</button>
+              <button
+                className="toggle-button"
+                onClick={e =>
+                  this.props.close(e, this.props.selectedStock, this.state)
+                }
+              >
+                Submit Prediction
+              </button>
             </form>
           </div>
         </div>

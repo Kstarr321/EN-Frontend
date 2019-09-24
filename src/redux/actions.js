@@ -30,7 +30,7 @@ const organizeIndicatorData = (data, dispatch) => {
     })
     .slice(0, 100);
 
-  // console.log(data);
+  // debugger
   dispatch({ type: "SET_INDICATOR", points });
 };
 
@@ -113,6 +113,7 @@ export const updateUser = () => {
 
 export const getIndicator = (indicator, symbol) => {
   console.log("I am about to fetch for the technical indicator!!!!!!!!!!!!!");
+  // debugger;
   return dispatch => {
     fetch("http://localhost:3000/quote/indicator", {
       method: "POST",
@@ -138,5 +139,20 @@ export const getNews = () => {
     })
       .then(response => response.json())
       .then(data => organizeNewsData(data, dispatch));
+  };
+};
+
+export const persistPrediction = (stock, info) => {
+  let newStock = { ticker: stock.datasets[0].label };
+  return dispatch => {
+    fetch("http://localhost:3000/predictions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`
+      },
+      body: JSON.stringify({ newStock, info })
+    });
   };
 };

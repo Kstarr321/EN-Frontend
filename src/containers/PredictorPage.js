@@ -1,15 +1,8 @@
 import React, { Component } from "react";
+import PredictForm from "../styled_components/PredictForm";
 
 export default class PredictorPage extends Component {
   render() {
-    return (
-      <div>
-        I am the Predictor page
-        <p>
-          I will be responsible for rendering the predict component amnd other
-          stuf
-        </p>
-      </div>
-    );
+    return <PredictForm />;
   }
 }
