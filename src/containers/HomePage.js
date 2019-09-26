@@ -96,7 +96,7 @@ const HomePageWrapper = styled.div`
       background-color: rgb(40, 40, 40);
       display: flex;
       flex-direction: column;
-      flex-wrap: wrap;
+      /* flex-wrap: wrap; */
       align-items: center;
       justify-content: space-between;
       width: 25%;
@@ -127,13 +127,56 @@ const HomePageWrapper = styled.div`
   }
 `;
 
+let failsafeSectors = [
+  ["Information Technology", "20%"],
+  ["Energy", "5%"],
+  ["Materials", "19%"],
+  ["Industrials", "14%"],
+  ["Consumer Discretionary", "44%"],
+  ["Consumer Staples", "12%"],
+  ["Healthcare", "45%"],
+  ["Financials", "26%"],
+  ["Communications", "10%"],
+  ["Utilites", "4%"],
+  ["Real Estate", "18%"]
+];
+let failsafeStocks = ["AAPL", "MSFT", "FB", "TSLA"];
+
+// let failsafe = () => {
+//   if (this.props.sectors === undefined) {
+//     failsafeSectors.map(sector => {
+//       return <SectorDisplay sector={sector} key={sector[0]} />;
+//     });
+//   } else {
+//     {
+//       Object.entries(this.props.sectors).map(sector => {
+//         // debugger;
+//         return <SectorDisplay sector={sector} key={sector} />;
+//       });
+//     }
+//   }
+// };
+
 export class HomePage extends React.Component {
   componentDidMount() {
-    // this.props.getSectors();
-    // this.props.getNews();
+    this.props.getSectors();
+    this.props.getNews();
     this.props.getFeaturedStocks();
     // debugger;
   }
+  // {failsafe()}
+  // failsafe = () => {
+  //   if (this.props.sectors === undefined) {
+  //     // debugger;
+  //     failsafeSectors.map(sector => {
+  //       return <SectorDisplay sector={sector} key={sector[0]} />;
+  //     });
+  //   } else {
+  //     Object.entries(this.props.sectors).map(sector => {
+  //       return <SectorDisplay sector={sector} key={sector} />;
+  //     });
+  //   }
+  // };
 
   render() {
     return (
@@ -142,22 +185,42 @@ export class HomePage extends React.Component {
           <div className="leftSide">
             <div className="prof"> Mini Prof Card</div>
             <div className="sectors">
-              {/* {Object.entries(this.props.sectors).map(sector => {
-                return <SectorDisplay sector={sector} key={sector} />;
-              })} */}
+              {this.props.sectors === undefined
+                ? failsafeSectors.map(sector => {
+                    return <SectorDisplay sector={sector} key={sector[0]} />;
+                  })
+                : Object.entries(this.props.sectors).map(sector => {
+                    return <SectorDisplay sector={sector} key={sector} />;
+                  })}
             </div>
             <div className="news">Trending news #</div>
           </div>
           <div className="feed">
-            {/* {this.props.news.map(art => {
+            {this.props.news.map(art => {
               return <NewsCard details={art} key={art.title} />;
-            })} */}
+            })}
           </div>
           <div className="rightSide">
-            {this.props.stocks.map(stock => {
+            <h1>Featured Stocks</h1>
+            {this.props.stocks === undefined
+              ? failsafeStocks.map(stock => {
+                  return <StockCard details={stock} key={stock} />;
+                })
+              : this.props.stocks.map(stock => {
+                  let stockObj = stock["Global Quote"];
+                  return (
+                    <StockCard
+                      details={stockObj}
+                      // key={stockObj["01. symbol"]}
+                    />
+                  );
+                })}
+            {/* {this.props.stocks.map(stock => {
               let stockObj = stock["Global Quote"];
-              return <StockCard details={stockObj} />;
-            })}
+              return (
+                <StockCard details={stockObj} key={stockObj["01. symbol"]} />
+              );
+            })} */}
           </div>
         </div>
       </HomePageWrapper>

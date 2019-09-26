@@ -4,13 +4,16 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   border-style: solid;
   border-color: white;
-  height: 25%;
+  height: 24%;
   width: 90%;
+  margin: 1.3%;
+  padding: 1px;
   /* margin-top: 0.3%; */
 `;
 
 export default class StockCard extends Component {
   render() {
-    return <Wrapper>I am the stock card</Wrapper>;
+    debugger;
+    return <Wrapper>I am a stock Card!</Wrapper>;
   }
 }

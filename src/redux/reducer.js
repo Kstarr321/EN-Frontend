@@ -15,6 +15,7 @@ export default function stateManager(
     case "GET_STOCK":
       return { ...state, selectedStock: action.chartData };
     case "GET_SECTORS":
+      // debugger;
       return {
         ...state,
         sectors: action.data["Rank F: Year-to-Date (YTD) Performance"]

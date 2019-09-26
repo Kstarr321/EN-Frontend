@@ -217,6 +217,7 @@ export class PredictForm extends Component {
             </h1>
           </div>
         </div>
+        ///
         <div className="c2">
           <form className="signup">
             <h1 className="signup1">Make Prediction</h1>
