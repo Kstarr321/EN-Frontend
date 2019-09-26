@@ -1,11 +1,13 @@
 import React from "react";
+import "bootstrap/dist/css/bootstrap.css";
 import { updateUser } from "./redux/actions";
 import { connect } from "react-redux";
 import { Route, Switch, Redirect, withRouter } from "react-router-dom";
 import styled from "styled-components";
 import { createGlobalStyle } from "styled-components";
 import { NavBar } from "./components/nav";
-
+import "./fonts/Raleway/Raleway-Regular.ttf";
+import "./fonts/Notable/Notable-Regular.ttf";
 import LandingPage from "./static/LandingPage";
 import LoginPage from "./containers/LoginPage";
 import SignupPage from "./containers/SignupPage";
@@ -16,14 +18,27 @@ import ProfilePage from "./containers/ProfilePage";
 import WatchListPage from "./containers/WatchListPage";
 
 const GlobalStyle = createGlobalStyle`
+  @font-face {
+    font-family: 'Notable', sans-serif;
+  src: local('Notable'), url(./fonts/Notable/Notable-Regular.ttf) format('truetype');
+}
+
+
 * {
+    /* font-family: Raleway; */
+    font-family: 'Notable', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
 
 body {
-  background-color: rgb(52, 50, 51);
+  /* font-family: Raleway; */
+  /* background-color: rgb(52, 50, 51); */
+  /* background-color: white; */
+  background-color: rgb(1, 150, 179);
+
+
   font-size: 15px;
   
   }`;

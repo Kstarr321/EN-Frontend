@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { Button } from "reactstrap";
 
 const Wrapper = styled.div`
   border-style: solid;
@@ -13,7 +14,7 @@ const Wrapper = styled.div`
 
 export default class StockCard extends Component {
   render() {
-    debugger;
-    return <Wrapper>I am a stock Card!</Wrapper>;
+    // debugger;
+    return <Wrapper></Wrapper>;
   }
 }

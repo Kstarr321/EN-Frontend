@@ -20,7 +20,10 @@ const CardWrapper = styled.div`
   border-radius: 25px;
 
   .banner {
-    border-radius: 25px;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+    /* top-border-radius: 25px; */
+    /* border-radius: 25px; */
     padding: 6%;
     display: flex;
     font-size: 30px;
@@ -43,7 +46,9 @@ const CardWrapper = styled.div`
   }
 
   .body {
-    border-radius: 25px;
+    /* border-radius: 25px; */
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
     margin-top: 0%;
     background-color: white;
     display: flex;
@@ -51,7 +56,8 @@ const CardWrapper = styled.div`
     width: 100%;
     height: 100%;
     color: black;
-    overflow: scroll;
+    overflow-y: scroll;
+    /* overflow */
     /* margin-bottom: 2%; */
     /* border-left: 5px solid white; */
 
@@ -60,29 +66,38 @@ const CardWrapper = styled.div`
       /* border-bottom: 5px solid white; */
       /* border-style: solid;
       border-color: white; */
+      /* overflow: hidden; */
       height: 100%;
       width: 100%;
       font-size: 20px;
       /* margin-top: 0%; */
       p {
         padding: 2%;
+        font-size: 33px;
+        font-style: italic;
       }
 
-      img {
-        width: 100%;
-        height: 70%;
+      .this {
+        /* object-fit: cover; */
+        /* position: absolute; */
+        /* object-fit: none; */
+        /* top: 0; */
+        /* left: 0; */
+        width: 50%;
+        /* width: 100%; */
+        height: 50%;
         /* padding: 10%; */
       }
     }
 
-    .story {
+    /* .story {
       /* border-style: solid;
       border-color: white; */
-      border-radius: 25px;
+    /* border-radius: 25px;
 
       height: 100%;
-      width: 100%;
-    }
+      width: 100%; */
+    /* }  */
   }
 `;
 
@@ -93,7 +108,7 @@ export default class NewsCard extends Component {
         <div className="banner">{this.props.details.title}</div>
         <div className="body">
           <div className="image">
-            <img src={this.props.details.image_url}></img>
+            <img src={this.props.details.image_url} className="this"></img>
             <p>{this.props.details.text}</p>
           </div>
           {/* <div className="story">oasdkjfoknf</div> */}

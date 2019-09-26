@@ -7,7 +7,9 @@ const NavWrapper = styled.div`
   /* position: initial; */
   justify-content: space-between;
   /* background-color: rgb(88, 75, 79); */
-  background-color: rgb(40, 40, 40);
+  /* background-color: rgb(40, 40, 40); */
+  background-color: rgb(55, 55, 55);
+
   width: 100%;
   height: 50px;
   /* border-bottom: 3px solid white; */

@@ -4,12 +4,15 @@ import styled from "styled-components";
 const SectorWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 10px;
+  margin: 1px;
+  margin-left: 10px;
+  padding: 3px;
   color: white;
-  font-size: 20px;
+  font-size: 28px;
 
   .perf {
     /* color: rgb(118, 175, 160); */
+    margin-right: 2px;
     color: rgb(1, 150, 179);
   }
 `;
